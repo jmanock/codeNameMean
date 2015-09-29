@@ -1,0 +1,47 @@
+.pga-mean-container .lowround{
+  background-color:#076652;
+  color:white;
+}
+
+.pga-mean-container .anti{
+  border:1px solid red;
+}
+
+.pga-mean-container .loading{
+  display:none;
+}
+
+.pga-mean-container .loading{
+  position:absolute;
+  width:100%;
+  height:100%;
+  text-align:center;
+}
+
+.pga-mean-container .center-helper{
+  display:inline-block;
+  height:100%;
+  vertical-align:middle;
+}
+
+.pga-mean-container .loading img{
+  vertical-align:middle;
+  max-height:100%;
+}
+
+.pga-mean-container .tournament-links a{
+  display:block;
+  padding:5px;
+}
+
+.pga-mean-container .checkbox-inline{
+  padding-right:20px;
+}
+
+.pga-mean-container .checkbox-label{
+  display:block;
+}
+
+.pga-mean-container input[type='checkbox']{
+  cursor:pointer;
+}
