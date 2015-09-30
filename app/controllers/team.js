@@ -2,14 +2,16 @@ exports.render = function(req, res){
   var Player = require('../models/player.js');
   var User = require('../models/user.js');
   var Tournament = require('../models/tournament.js');
-  var Q = require('q'),
-  util = require('util'),
-  request = require('request');
+
+  var Q = require('q');
+  var util = require('util');
+  var request = require('request');
 
   var tournamentJSON = {};
+
   function getAllScores(tournament){
     var promises = [];
-    var tournamentPromise = tournamentCardPromise('http://www.pgatour.com/data/r/'+tournament.tournamentCode+'/leaderboard-v2.json');
+    var tournamentPromise = tournamentCardPromise('http://www.pgatour.com/data/r/'+ tournament.tournamentCode + '/leaderboard-v2.json');
     promises.push(tournamentPromise);
     for(var a = 0; a<tournament.teams.length; a++){
       var promise = getTeamScores(tournament.teams[a]);
@@ -23,24 +25,24 @@ exports.render = function(req, res){
   function getTeamScores(team){
     var promises = [];
     for(var b = 0; b<team.players.length; b++){
-      var scorecardURL = 'http://www.pgatour.com/data/r/'+tournamentJSON.tournamentCode +'/scorecards/'+team.players[b] + '.json';
-      var promise = requestp(scorecardURL);
+      var scorecardURL = 'http://www.pgatour.com/data/r/'+tournamentJSON.tournamentCode + '/scorecards/'+team.players[b]+'.json';
+      var promise = request(scorecardURL);//requestp
       promises.push(promise);
     }
     return Q.all(promises);
   }
 
-  function isTrashHole(holeNum){
+  function isTrahHole(holeNum){
     var trashHole = false;
     for(var a = 0; a<tournamentJSON.trashHoles.length; a++){
-      if(Number(holeNum)==Number(tournamentJSON.trashHoles[a])){
+      if(Number(holeNum) == Number(tournamentJSON.trashHoles[a])){
         trashHole = true;
       }
     }
     return trashHole;
   }
 
-  function getBlakGolferData(rounds){
+  function getBlankGolferData(rounds){
     var data = {
       'id':'',
       'finalScore':99,
@@ -50,13 +52,13 @@ exports.render = function(req, res){
       'rnds':[],
       'others':[]
     };
-    for(var i = 0; i<rounds; i++){
+    for(var i =0; i<rounds; i++){
       data.rnds.push({
         'eagles':0,
         'trashBirdies':0,
         'tross':0,
         'score':0,
-        'lowRound':false,
+        'lowRounds':false,
         'others':[],
         'holesPlayed':0
       });
@@ -64,12 +66,12 @@ exports.render = function(req, res){
     return data;
   }
 
-  function calcLowRounds(groupsAndScores){
-    var lowScoresPerRound = [99,99, 99, 99];
-    for(var i = 0; i<groupsAndScores.length; i++){
-      for(var j=0; j<groupsAndScores[i].players.length; j++){
-        for(var k = 0; k< groupsAdnScores[i].players[j].rnds.length; k++){
-          if(Number(groupsAndScores[i].players[j].rnds[k].score)<lowScorePerRound[k]){
+  function clacLowRounds(groupsAndScores){
+    var lowScoresPerRound = [99,99,99,99];
+    for(var i =0; i<groupsAndScores.length; i++){
+      for(var j = 0; j<groupsAndScores[i].players.length; j++){
+        for(var k = 0; k<groupsAndScores[i].players[j].rnds.length; k++){
+          if(Number(groupsAndScores[i].players[j].rnds[k].score)<lowScoresPerRound[k]){
             lowScoresPerRound[k] = Number(groupsAndScores[i].players[j].rnds[k].score);
           }
         }
@@ -78,7 +80,7 @@ exports.render = function(req, res){
     for(var a = 0; a<groupsAndScores.length; a++){
       for(var b = 0; b<groupsAndScores[a].players.length; b++){
         for(var c = 0; c<groupsAndScores[a].players[b].rnds.length; c++){
-          if(lowScoresPerRound[c] == Number(groupsAndScores[a].players[b].rnds[c].score)){
+          if(lowScorePerRounds[c] == Number(groupsAndScores[a].players[b].rnds[c].score)){
             groupsAndScores[a].players[b].rnds[c].lowRound = true;
           }
         }
@@ -109,19 +111,19 @@ exports.render = function(req, res){
         data = getBlankGolferData(scorecard.p.rnds.length);
         getNameFromId(scorecard.p.id).then(function(player){
           var finalRound = scorecard.p.rnds[scorecard.p.rnds.length -1];
-          var finalHole = finalRound.holes[finalRound.holes.length -1];
-          data.finalScore = finalHole.pTot;
+          var finalHole = finalRound.holes[finalRounds.holes.length -1];
+          data.finaScore = finalHole.pTot;
           data.id = scorecard.p.id;
           data.name = player.name;
 
           for(var i = 0; i<scorecard.p.rnds.length; i++){
             for(var n = 0; n<scorecard.p.rnds[i].holes.length; n++){
-              if(scorecard.p.rnds[i].holes[n].sc !==''){
-                if(scorecard.p.rnds[i].holes[n].n === '1'){
+              if(scorecard.p.rnds[i].holes[n].sc !== ''){
+                if(scorecard.p.rnds[i].holes[n].n == '1'){
                   if(scorecard.p.rnds[i].holes[n].pDay == '-3'){
                     data.rnds[i].tross++;
                     data.tross++;
-                  }else if(scorecard.p.rnds[i].holes[n].pDay == '-2'){
+                  }else if(scorecard.p.rnds[i].holes[n].pDay =='-2'){
                     data.rnds[i].eagles++;
                     data.eagles++;
                   }else if(Number(scorecard.p.rnds[i].holes[n].pDay)>=2){
@@ -134,13 +136,16 @@ exports.render = function(req, res){
                     }
                   }
                 }else{
-                  if(Number(scorecard.p.rnds[i].holes[n].pDay)- Number())
+                  if(Number(scorecard.p.rnds[i].holes[n].pDay)= Number((scorecard.p.rnds[i].holes[n-1].pDay))==-3){
+                    data.rnds[i].tross++;
+                    data.tross++;
+                  }else if()
                 }
               }
             }
           }
-        })
+        });
       }
-    })
+    });
   }
 }
