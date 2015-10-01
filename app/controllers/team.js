@@ -274,6 +274,7 @@ getTournamentFromId(req.params.tournament_id).then(function(tournament){
         groupsAndScores[i].players[j].money = getMoneyEarned(groupsAndScores[i].players[j], isAnti);
       }
     }
+    console.log(groupsAndScores);
     res.json(groupsAndScores);
   }, function(rejection){
     console.log(rejection);
