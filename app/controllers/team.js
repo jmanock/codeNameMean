@@ -111,41 +111,12 @@ exports.render = function(req, res){
         data = getBlankGolferData(scorecard.p.rnds.length);
         getNameFromId(scorecard.p.id).then(function(player){
           var finalRound = scorecard.p.rnds[scorecard.p.rnds.length -1];
-          var finalHole = finalRound.holes[finalRounds.holes.length -1];
-          data.finaScore = finalHole.pTot;
+          var finalHole = finalRound.holes[finalRound.holes.length -1];
+          data.finalScore = finalHole.pTot;
           data.id = scorecard.p.id;
           data.name = player.name;
-
-          for(var i = 0; i<scorecard.p.rnds.length; i++){
-            for(var n = 0; n<scorecard.p.rnds[i].holes.length; n++){
-              if(scorecard.p.rnds[i].holes[n].sc !== ''){
-                if(scorecard.p.rnds[i].holes[n].n == '1'){
-                  if(scorecard.p.rnds[i].holes[n].pDay == '-3'){
-                    data.rnds[i].tross++;
-                    data.tross++;
-                  }else if(scorecard.p.rnds[i].holes[n].pDay =='-2'){
-                    data.rnds[i].eagles++;
-                    data.eagles++;
-                  }else if(Number(scorecard.p.rnds[i].holes[n].pDay)>=2){
-                    data.rnds[i].others.push(Number(scorecard.p.rnds[i].holes[n].pDay));
-                    data.others.push(Number(scorecard.p.rnds[i].holes[n].pDay));
-                  }else if(isTrashHole(scorecard.p.rnds[i].holes[n].cNum)){
-                    if(scorecard.p.rnds[i].holes[n].pDay == '-1'){
-                      data.rnds[i].trashBirdies++;
-                      data.trashBirdies++;
-                    }
-                  }
-                }else{
-                  if(Number(scorecard.p.rnds[i].holes[n].pDay)= Number((scorecard.p.rnds[i].holes[n-1].pDay))==-3){
-                    data.rnds[i].tross++;
-                    data.tross++;
-                  }else if()
-                }
-              }
-            }
-          }
-        });
+        })
       }
-    });
+    })
   }
-}
+};
