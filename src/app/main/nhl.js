@@ -10,8 +10,14 @@
     if(!error && response.statusCode === 200){
       var $ = cheerio.load(body);
       var link = $('td > a');
+      var date = $('tr').next().text();
+
+
+
       link.each(function(i,links){
         var knames = links.children;
+        var date = links.parent.attribs.csk;
+        console.log(date);
         for(var j = 0; j<knames.length; j++){
           var games = knames[j].data;
           something.push(games);
@@ -25,7 +31,6 @@
         hTeam.push(something[x]);
       }
     }
-    console.log(vTeam.length);
-    console.log(hTeam.length);
+
   });
 })();
