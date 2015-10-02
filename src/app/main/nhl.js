@@ -6,6 +6,8 @@
   var something = [];
   var vTeam = [];
   var hTeam = [];
+  var dates = [];
+  var cut = [];
   request(url, function(error, response, body){
     if(!error && response.statusCode === 200){
       var $ = cheerio.load(body);
@@ -17,7 +19,8 @@
       link.each(function(i,links){
         var knames = links.children;
         var date = links.parent.attribs.csk;
-        console.log(date);
+        dates.push(date);
+
         for(var j = 0; j<knames.length; j++){
           var games = knames[j].data;
           something.push(games);
@@ -32,5 +35,18 @@
       }
     }
 
+    for(var k = 0; k<dates.length; k++){
+      if(k % 2 === 0){
+        // gets rid of last 3 letters
+        //  var kick = dates[k].slice(0,-3);
+        var kick = dates[k].slice(4,13);
+
+         console.log(kick);
+
+        cut.push(dates[k]);
+      }
+
+    }
+    // console.log(cut);
   });
 })();
