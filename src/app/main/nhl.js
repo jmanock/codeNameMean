@@ -7,12 +7,14 @@
   request(url, function(error, response, body){
     if(!error && response.statusCode === 200){
       var $ = cheerio.load(body);
-      var rows;
-      for(var i = 0; i<1230; i++){
-        rows = '.data-row='+i;
-        var knew = $(rows);
-        console.log(knew);
-      }
+      var link = $('td > a');
+      link.each(function(i,links){
+        var knames = links.children;
+        for(var j = 0; j<knames.length; j++){
+          console.log(knames[j].data);
+        }
+
+      });
     }
   });
 })();
