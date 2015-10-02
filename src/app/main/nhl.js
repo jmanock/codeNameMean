@@ -9,8 +9,15 @@ request(url, function(error, response, body){
 
   if(!error && response.statusCode === 200){
     var $ = cheerio.load(body);
-    var links = $('td > a').text();
-    something.push(links);
-    console.log(something.length);
+    // var visitTeam = $('.left > a').text();
+    // var homeTeam = $('.right > a').text();
+    var date = $('tr > td');
+    
+    /* Get
+      ~ Home Team
+      ~ Visiting Team
+      ~ Date
+    */
   }
+
 });
