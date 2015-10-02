@@ -9,6 +9,7 @@
   var hTeam = [];
   var dates = [];
   var cut = [];
+  var final = [];
   request(url, function(error, response, body){
     if(!error && response.statusCode === 200){
       var $ = cheerio.load(body);
@@ -44,6 +45,14 @@
       }
 
     }
-    
+
+    for(var b = 0; b<cut.length && b<hTeam.length && b<vTeam.length; b++){
+      final.push({
+        Date:cut[b],
+        Home:hTeam[b],
+        Vistor:vTeam[b]
+      });
+    }
+    console.log(final.length);
   });
 })();
