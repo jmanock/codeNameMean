@@ -31,7 +31,21 @@
       });
     }
 
-    
-
+    for(var b = 0; b<dates.length && b<something.length; b++){
+      // remove games on the days
+      // put teams together
+      var kick = dates[b].slice(4,12);
+      var a = moment(kick, 'YYYYMMDD').format('dddd MMM Do YY');
+      var c = moment(kick, 'YYYYMMDD').format('dddd');
+      if(c === 'Sunday' || c === 'Saturday' || c === 'Friday' || c === 'Thursday'){
+        if(b % 2 === 0){
+          final.push({Date:a});
+          final.push({Visitor:something[b]});
+        }else{
+          final.push({Home:something[b]});
+        }
+      }
+    }
+    console.log(final.length);
   });
 })();
