@@ -7,12 +7,10 @@
 
   var url = 'http://www.hockey-reference.com/leagues/NHL_2016_games.html';
   var something = [];
-  var vTeam = [];
-  var hTeam = [];
   var dates = [];
-  var cut = [];
   var final = [];
-
+  var hTeam = [];
+  var vTeam = [];
   request(url, function(error, response, body){
     if(!error && response.statusCode === 200){
       var $ = cheerio.load(body);
@@ -32,20 +30,32 @@
     }
 
     for(var b = 0; b<dates.length && b<something.length; b++){
-      // remove games on the days
-      // put teams together
+
       var kick = dates[b].slice(4,12);
       var a = moment(kick, 'YYYYMMDD').format('dddd MMM Do YY');
       var c = moment(kick, 'YYYYMMDD').format('dddd');
       if(c === 'Sunday' || c === 'Saturday' || c === 'Friday' || c === 'Thursday'){
         if(b % 2 === 0){
-          final.push({Date:a});
-          final.push({Visitor:something[b]});
+          // final.push({Date:a});
+          // final.push({Visitor:something[b]});
+          vTeam.push({
+            Date:a,
+            Visitor:something[b],
+          });
         }else{
-          final.push({Home:something[b]});
+          hTeam.push({
+          Home:something[b]
+        });
         }
       }
     }
-    console.log(final.length);
+    for(var g =0; g<hTeam.length && g<vTeam.length; g++){
+      final.push({
+        Date:vTeam[g].Date,
+        Visitor:vTeam[g].Visitor,
+        Home:hTeam[g].Home
+      });
+    }
+    
   });
 })();
