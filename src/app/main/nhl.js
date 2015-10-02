@@ -2,6 +2,7 @@
   'use strict';
   var request = require('request');
   var cheerio = require('cheerio');
+  var moment = require('moment');
   var url = 'http://www.hockey-reference.com/leagues/NHL_2016_games.html';
   var something = [];
   var vTeam = [];
@@ -37,16 +38,12 @@
 
     for(var k = 0; k<dates.length; k++){
       if(k % 2 === 0){
-        // gets rid of last 3 letters
-        //  var kick = dates[k].slice(0,-3);
-        var kick = dates[k].slice(4,13);
-
-         console.log(kick);
-
-        cut.push(dates[k]);
+        var kick = dates[k].slice(4,12);
+        var a = moment(kick, 'YYYYMMDD').format('MMM Do YYYY');
+        cut.push(a);
       }
 
     }
-    // console.log(cut);
+    
   });
 })();
