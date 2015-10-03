@@ -32,7 +32,7 @@
     for(var b = 0; b<dates.length && b<something.length; b++){
 
       var kick = dates[b].slice(4,12);
-      var a = moment(kick, 'YYYYMMDD').format('dddd MMM Do YY');
+      var a = moment(kick, 'YYYYMMDD').format('dddd MMM Do YYYY');
       var c = moment(kick, 'YYYYMMDD').format('dddd');
       if(c === 'Sunday' || c === 'Saturday' || c === 'Friday' || c === 'Thursday'){
         if(b % 2 === 0){
@@ -56,6 +56,12 @@
         Home:hTeam[g].Home
       });
     }
-    
+    for(var r = 0; r<final.length; r++){
+      /* Need to group games into weeks
+      7 months 12 games each week
+      26 weeks starting a week after the season starts
+      */
+
+    }
   });
 })();
