@@ -73,7 +73,7 @@
 
       */
     for(var t = 0; t<final.length; t++){
-
+      console.log(final[t]);
 
     }
 
