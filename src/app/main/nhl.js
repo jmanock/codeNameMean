@@ -29,16 +29,22 @@
       });
     }
 
+
     for(var b = 0; b<dates.length && b<something.length; b++){
 
       var kick = dates[b].slice(4,12);
-      // Think this would be the best place to start to get them into weeks
-      Number(kick);
-      var knewKick = kick.slice(4);
-      console.log(knewKick);
+      /*
+      ~ Maybe not range but num values for weeks?
+        *ie weeke one if equaly to date
+        Lets start with week objects
+      */
+      //Number(kick);
+
       var a = moment(kick, 'YYYYMMDD').format('dddd MMM Do YYYY');
       var c = moment(kick, 'YYYYMMDD').format('dddd');
+      var d = moment(kick, 'YYYYMMDD').format('ll');
       if(c === 'Sunday' || c === 'Saturday' || c === 'Friday' || c === 'Thursday'){
+
         if(b % 2 === 0){
           vTeam.push({
             Date:a,
