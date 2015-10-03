@@ -4,7 +4,7 @@
   var request = require('request');
   var cheerio = require('cheerio');
   var moment = require('moment');
-
+  var _ = require('underscore');
   var url = 'http://www.hockey-reference.com/leagues/NHL_2016_games.html';
   var something = [];
   var dates = [];
@@ -32,12 +32,12 @@
     for(var b = 0; b<dates.length && b<something.length; b++){
 
       var kick = dates[b].slice(4,12);
+      // Think this would be the best place to start to get them into weeks
+
       var a = moment(kick, 'YYYYMMDD').format('dddd MMM Do YYYY');
       var c = moment(kick, 'YYYYMMDD').format('dddd');
       if(c === 'Sunday' || c === 'Saturday' || c === 'Friday' || c === 'Thursday'){
         if(b % 2 === 0){
-          // final.push({Date:a});
-          // final.push({Visitor:something[b]});
           vTeam.push({
             Date:a,
             Visitor:something[b],
@@ -50,18 +50,24 @@
       }
     }
     for(var g =0; g<hTeam.length && g<vTeam.length; g++){
+
       final.push({
         Date:vTeam[g].Date,
         Visitor:vTeam[g].Visitor,
         Home:hTeam[g].Home
       });
     }
-    for(var r = 0; r<final.length; r++){
+
       /* Need to group games into weeks
       7 months 12 games each week
       26 weeks starting a week after the season starts
+      Has to be an easier way that to write out every date
+
       */
+    for(var t = 0; t<final.length; t++){
+
 
     }
+
   });
 })();
