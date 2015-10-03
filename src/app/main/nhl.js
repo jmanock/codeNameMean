@@ -33,7 +33,9 @@
 
       var kick = dates[b].slice(4,12);
       // Think this would be the best place to start to get them into weeks
-
+      Number(kick);
+      var knewKick = kick.slice(4);
+      console.log(knewKick);
       var a = moment(kick, 'YYYYMMDD').format('dddd MMM Do YYYY');
       var c = moment(kick, 'YYYYMMDD').format('dddd');
       if(c === 'Sunday' || c === 'Saturday' || c === 'Friday' || c === 'Thursday'){
