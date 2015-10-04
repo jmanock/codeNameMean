@@ -36,7 +36,7 @@
 
       var a = moment(kick, 'YYYYMMDD').format('dddd MMM Do YYYY');
       var c = moment(kick, 'YYYYMMDD').format('dddd');
-      var d = moment(kick, 'YYYYMMDD').format('ll');
+      // var d = moment(kick, 'YYYYMMDD').format('ll');
       if(c === 'Sunday' || c === 'Saturday' || c === 'Friday' || c === 'Thursday'){
 
         if(b % 2 === 0){
@@ -51,12 +51,12 @@
         }
       }
     }
-    for(var g =0; g<hTeam.length && g<vTeam.length; g++){
+    for(var d =0; d<hTeam.length && d<vTeam.length; d++){
 
       final.push({
-        date:vTeam[g].Date,
-        Visitor:vTeam[g].Visitor,
-        Home:hTeam[g].Home
+        date:vTeam[d].Date,
+        Visitor:vTeam[d].Visitor,
+        Home:hTeam[d].Home
       });
     }
 
@@ -66,9 +66,6 @@
       Has to be an easier way that to write out every date
 
       */
-    for(var t = 0; t<final.length; t++){
-
-    }
 
     var workz = _.chain(final).groupBy('date').map(function(value, key){
       return{
@@ -77,6 +74,10 @@
         Home:_.pluck(value, 'Home')
       };
     }).value();
-    console.log(workz);
+    var e, j, temparray, chunk = 4;
+    for(e=0,j=workz.length; e<j; e+=chunk){
+      temparray = workz.slice(e,e+chunk);
+      console.log(temparray.length);
+    }
   });
 })();
