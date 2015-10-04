@@ -33,12 +33,6 @@
     for(var b = 0; b<dates.length && b<something.length; b++){
 
       var kick = dates[b].slice(4,12);
-      /*
-      ~ Maybe not range but num values for weeks?
-        *ie weeke one if equaly to date
-        Lets start with week objects
-      */
-      //Number(kick);
 
       var a = moment(kick, 'YYYYMMDD').format('dddd MMM Do YYYY');
       var c = moment(kick, 'YYYYMMDD').format('dddd');
@@ -60,7 +54,7 @@
     for(var g =0; g<hTeam.length && g<vTeam.length; g++){
 
       final.push({
-        Date:vTeam[g].Date,
+        date:vTeam[g].Date,
         Visitor:vTeam[g].Visitor,
         Home:hTeam[g].Home
       });
@@ -73,9 +67,16 @@
 
       */
     for(var t = 0; t<final.length; t++){
-      console.log(final[t]);
 
     }
 
+    var workz = _.chain(final).groupBy('date').map(function(value, key){
+      return{
+        Date:key,
+        Visitors:_.pluck(value, 'Visitor'),
+        Home:_.pluck(value, 'Home')
+      };
+    }).value();
+    console.log(workz);
   });
 })();
