@@ -1,5 +1,15 @@
 <div class="container">
   <ul>
-    <li ng-repeat='w in main.weeks'>{{w.Date}} | {{w.Home}} || {{w.Visitors}}</li>
+    <h3>First</h3>
+    <li ng-repeat='(k, v) in main.weeks'>
+    <p ng-repeat='value in v.Home'>
+      {{value}}
+    </p>
+    <h4 ng-repeat='value in v.Visitors'>
+      {{value}}
+    </h4>
+    </li>
   </ul>
+
+
 </div>
