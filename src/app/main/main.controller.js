@@ -11,7 +11,7 @@
     var url = 'https://fireseedangular.firebaseio.com/Week1';
     var ref = new Firebase(url);
     vm.weeks = $firebaseArray(ref);
-    console.log(vm.weeks);
+    
 
     }
 })();
