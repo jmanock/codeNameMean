@@ -8,7 +8,7 @@
   var _ = require('underscore');
 
   var url = 'http://www.hockey-reference.com/leagues/NHL_2016_games.html';
-  var fbUrl = 'https://fireseedangular.firebaseio.com';
+  var fbUrl = 'https://fireseedangular.firebaseio.com/';
   var ref = new Firebase(fbUrl);
   var something = [];
   var dates = [];
@@ -72,16 +72,21 @@
         Home:_.pluck(value, 'Home')
       };
     }).value();
-    var weekOne = [];
-    var weekTwo = [];
+
     var week1 = workz.slice(0,4);
     var week2 = workz.slice(4,8);
-    weekOne.push(week1);
-    weekTwo.push(week2);
-    ref.update({
-      WeekOne:weekOne,
-      WeekTwo:weekTwo
+    var week3 = workz.slice(8,12);
+    var week4 = workz.slice(12, 16);
+    var week5 = workz.slice(16, 20);
+
+    ref.set({
+      WeekOne:week1,
+      WeekTwo:week2,
+      WeekThree:week3,
+      WeekFour:week4,
+      WeekFive:week5
     });
+
     // This splits the dates into groups of 4 ie (weeks)
     // This gets fucked up when there is no thurs games
     var e, j, temparray, chunk = 4;
