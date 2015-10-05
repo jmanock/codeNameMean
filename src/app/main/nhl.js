@@ -72,12 +72,34 @@
         Home:_.pluck(value, 'Home')
       };
     }).value();
-
+    var weekOne = [];
+    var weekTwo = [];
+    var week1 = workz.slice(0,4);
+    var week2 = workz.slice(4,8);
+    weekOne.push(week1);
+    weekTwo.push(week2);
+    console.log(weekTwo);
     // This splits the dates into groups of 4 ie (weeks)
+    // This gets fucked up when there is no thurs games
     var e, j, temparray, chunk = 4;
     for(e=0,j=workz.length; e<j; e+=chunk){
       temparray = workz.slice(e,e+chunk);
-
+      // Fb only gets the last for which is off getting the last sunday when the last week should only have three days
+      /*
+      I think what I would like is this
+        - Week one
+          - Dates
+            - Games
+        - Week two
+          - Dates
+            - Games
+      */
+      /* What do I want to do
+        - Push each collection into a new array (ie weeks)
+        - Without changing the name everything gets replaced
+        - Dont think i can get it with temp[1]
+      */
+      //console.log(temparray[0]);
     }
 
   });
