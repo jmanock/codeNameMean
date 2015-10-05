@@ -78,7 +78,10 @@
     var week2 = workz.slice(4,8);
     weekOne.push(week1);
     weekTwo.push(week2);
-    console.log(weekTwo);
+    ref.update({
+      WeekOne:weekOne,
+      WeekTwo:weekTwo
+    });
     // This splits the dates into groups of 4 ie (weeks)
     // This gets fucked up when there is no thurs games
     var e, j, temparray, chunk = 4;
