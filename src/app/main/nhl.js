@@ -1,11 +1,15 @@
 (function(){
   'use strict';
 
+  var Firebase = require('firebase');
   var request = require('request');
   var cheerio = require('cheerio');
   var moment = require('moment');
   var _ = require('underscore');
+
   var url = 'http://www.hockey-reference.com/leagues/NHL_2016_games.html';
+  var fbUrl = 'https://fireseedangular.firebaseio.com';
+  var ref = new Firebase(fbUrl);
   var something = [];
   var dates = [];
   var final = [];
@@ -60,13 +64,7 @@
       });
     }
 
-      /* Need to group games into weeks
-      7 months 12 games each week
-      26 weeks starting a week after the season starts
-      Has to be an easier way that to write out every date
-
-      */
-
+    // This puts all the same dates together
     var workz = _.chain(final).groupBy('date').map(function(value, key){
       return{
         Date:key,
@@ -74,10 +72,12 @@
         Home:_.pluck(value, 'Home')
       };
     }).value();
+
+    // This splits the dates into groups of 4 ie (weeks)
     var e, j, temparray, chunk = 4;
     for(e=0,j=workz.length; e<j; e+=chunk){
       temparray = workz.slice(e,e+chunk);
-      console.log(temparray);
+
     }
 
   });
