@@ -139,7 +139,11 @@
         ~ Need to reduce the games down to 12 or 13
       */
 
-      console.log(date,home.length, visit.length);
+      var some = _.zip(visit,home);
+      console.log(date);
+      console.log(some.length);
+
+      // console.log(date,home.length, visit.length);
     }
 
 
