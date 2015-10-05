@@ -129,15 +129,19 @@
       Week26:week26
     });
 
-    // This splits the dates into groups of 4 ie (weeks)
-    // This gets fucked up when there is no thurs games
-    // Dont need this!!!
+    for(var e = 0; e<week1.length; e++){
+      var home = week1[e].Home;
+      var date = week1[e].Date;
+      var visit = week1[e].Visitors;
 
-    // var e, j, temparray, chunk = 4;
-    // for(e=0,j=workz.length; e<j; e+=chunk){
-    //   temparray = workz.slice(e,e+chunk);
-    //
-    // }
+      /* ToDo
+        ~ Need to map home and away teams together
+        ~ Need to reduce the games down to 12 or 13
+      */
+
+      console.log(date,home.length, visit.length);
+    }
+
 
   });
 })();
