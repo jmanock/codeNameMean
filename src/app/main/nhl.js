@@ -77,7 +77,8 @@
     var e, j, temparray, chunk = 4;
     for(e=0,j=workz.length; e<j; e+=chunk){
       temparray = workz.slice(e,e+chunk);
-      console.log(temparray.length);
+      console.log(temparray);
     }
+
   });
 })();
