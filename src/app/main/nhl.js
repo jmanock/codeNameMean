@@ -76,15 +76,25 @@
     var week1 = workz.slice(0,4);
     var week2 = workz.slice(4,8);
     var week3 = workz.slice(8,12);
-    var week4 = workz.slice(12, 16);
-    var week5 = workz.slice(16, 20);
+    var week4 = workz.slice(12,16);
+    var week5 = workz.slice(16,20);
+    var week6 = workz.slice(20,24);
+    var week7 = workz.slice(24,28);
+    var week8 = workz.slice(28,31);
+    var week9 = workz.slice(31,35);
+    var week10 = workz.slice(35,39);
 
     ref.set({
-      WeekOne:week1,
-      WeekTwo:week2,
-      WeekThree:week3,
-      WeekFour:week4,
-      WeekFive:week5
+      Week1:week1,
+      Week2:week2,
+      Week3:week3,
+      Week4:week4,
+      Week5:week5,
+      Week6:week6,
+      Week7:week7,
+      Week8:week8,
+      Week9:week9,
+      Week10:week10
     });
 
     // This splits the dates into groups of 4 ie (weeks)
