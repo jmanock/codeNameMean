@@ -83,6 +83,22 @@
     var week8 = workz.slice(28,31);
     var week9 = workz.slice(31,35);
     var week10 = workz.slice(35,39);
+    var week11 = workz.slice(39,43);
+    var week12 = workz.slice(43,45);
+    var week13 = workz.slice(45,49);
+    var week14 = workz.slice(49,53);
+    var week15 = workz.slice(53,57);
+    var week16 = workz.slice(57,61);
+    var week17 = workz.slice(61,65);
+    var week18 = workz.slice(65,69);
+    var week19 = workz.slice(69,73);
+    var week20 = workz.slice(73,77);
+    var week21 = workz.slice(77,81);
+    var week22 = workz.slice(81,85);
+    var week23 = workz.slice(85,89);
+    var week24 = workz.slice(89,93);
+    var week25 = workz.slice(93,97);
+    var week26 = workz.slice(97,101);
 
     ref.set({
       Week1:week1,
@@ -94,31 +110,34 @@
       Week7:week7,
       Week8:week8,
       Week9:week9,
-      Week10:week10
+      Week10:week10,
+      Week11:week11,
+      Week12:week12,
+      Week13:week13,
+      Week14:week14,
+      Week15:week15,
+      Week16:week16,
+      Week17:week17,
+      Week18:week18,
+      Week19:week19,
+      Week20:week20,
+      Week21:week21,
+      Week22:week22,
+      Week23:week23,
+      Week24:week24,
+      Week25:week25,
+      Week26:week26
     });
 
     // This splits the dates into groups of 4 ie (weeks)
     // This gets fucked up when there is no thurs games
-    var e, j, temparray, chunk = 4;
-    for(e=0,j=workz.length; e<j; e+=chunk){
-      temparray = workz.slice(e,e+chunk);
-      // Fb only gets the last for which is off getting the last sunday when the last week should only have three days
-      /*
-      I think what I would like is this
-        - Week one
-          - Dates
-            - Games
-        - Week two
-          - Dates
-            - Games
-      */
-      /* What do I want to do
-        - Push each collection into a new array (ie weeks)
-        - Without changing the name everything gets replaced
-        - Dont think i can get it with temp[1]
-      */
-      //console.log(temparray[0]);
-    }
+    // Dont need this!!!
+
+    // var e, j, temparray, chunk = 4;
+    // for(e=0,j=workz.length; e<j; e+=chunk){
+    //   temparray = workz.slice(e,e+chunk);
+    //
+    // }
 
   });
 })();
