@@ -152,42 +152,12 @@
 
       }
       another(temp,y);
-      /*
-        ~ Have to figure out how to put the week in first
-        ~ Then add the week obj
-      */
-
     }
+
 function another(x,y){
-  var url = 'https://fireseedangular.firebaseio.com/'+y;
+  var url = 'https://fireseedangular.firebaseio.com/Weeks/'+y;
   var knewRef = new Firebase(url);
   knewRef.set(x);
 }
-
-    // var weekOne = [];
-    // for(var e = 0; e<week1.length; e++){
-    //   var home = week1[e].Home;
-    //   var date = week1[e].Date;
-    //   var visit = week1[e].Visitors;
-    //   var some = _.zip(visit,home);
-    //
-    //   if(some.length > 4){
-    //     var shuf = _.shuffle(some);
-    //     var sl = shuf.slice(0,4);
-    //     weekOne.push({
-    //       Date:date,
-    //       Games:_.unzip(sl),
-    //     });
-    //   }else{
-    //     weekOne.push({
-    //       Date:date,
-    //       Games:_.unzip(some)
-    //     });
-    //   }
-    //
-    // }
-
-
-
   });
 })();
