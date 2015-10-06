@@ -128,7 +128,7 @@
       Week25:week25,
       Week26:week26
     });
-
+    var total = 0;
     for(var e = 0; e<week1.length; e++){
       var home = week1[e].Home;
       var date = week1[e].Date;
@@ -140,8 +140,11 @@
       */
 
       var some = _.zip(visit,home);
-      console.log(date);
-      console.log(some.length);
+
+      total += some.length;
+
+      console.log(total);
+      //console.log(some.length);
 
       // console.log(date,home.length, visit.length);
     }
