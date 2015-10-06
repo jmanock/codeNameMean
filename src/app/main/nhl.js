@@ -127,8 +127,9 @@
     fbase(week26,'Week26');
 
     function fbase(x,y){
+      var temp = [];
       for(var e = 0; e<x.length; e++){
-        var temp = [];
+
         var home = x[e].Home;
         var date = x[e].Date;
         var visit = x[e].Visitors;
@@ -148,20 +149,20 @@
             Games:_.unzip(zip)
           });
         }
-        another(temp,y);
+
       }
+      another(temp,y);
       /*
         ~ Have to figure out how to put the week in first
         ~ Then add the week obj
       */
-      function another(x,y){
-        var url = 'https://fireseedangular.firebaseio.com/'+y;
-         var knewRef = new Firebase(url);
-         knewRef.set(x);
 
-      }
     }
-
+function another(x,y){
+  var url = 'https://fireseedangular.firebaseio.com/'+y;
+  var knewRef = new Firebase(url);
+  knewRef.set(x);
+}
 
     // var weekOne = [];
     // for(var e = 0; e<week1.length; e++){
