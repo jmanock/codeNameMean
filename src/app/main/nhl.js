@@ -133,18 +133,25 @@
       var home = week1[e].Home;
       var date = week1[e].Date;
       var visit = week1[e].Visitors;
-
-      /* ToDo
-        ~ Need to map home and away teams together
-        ~ Need to reduce the games down to 12 or 13
-      */
-
       var some = _.zip(visit,home);
 
       total += some.length;
 
-      console.log(total);
-      //console.log(some.length);
+      if(some.length > 4){
+        /*
+          ~ Need to shuffle and add to fb
+          ~ Remove or pluck
+        */
+        var shuf = _.shuffle(some);
+        console.log(date);
+        console.log(shuf[0]);
+        console.log(shuf[1]);
+        console.log(shuf[2]);
+        console.log(shuf[3]);
+      }else{
+        console.log(date);
+        console.log(some);
+      }
 
       // console.log(date,home.length, visit.length);
     }
