@@ -8,7 +8,7 @@
   var _ = require('underscore');
 
   var url = 'http://www.hockey-reference.com/leagues/NHL_2016_games.html';
-  var fbUrl = 'https://fireseedangular.firebaseio.com/';
+  var fbUrl = 'https://fireseedangular.firebaseio.com/test/';
   var ref = new Firebase(fbUrl);
   var something = [];
   var dates = [];
@@ -100,34 +100,34 @@
     var week25 = workz.slice(93,97);
     var week26 = workz.slice(97,101);
 
-    ref.set({
-      Week1:week1,
-      Week2:week2,
-      Week3:week3,
-      Week4:week4,
-      Week5:week5,
-      Week6:week6,
-      Week7:week7,
-      Week8:week8,
-      Week9:week9,
-      Week10:week10,
-      Week11:week11,
-      Week12:week12,
-      Week13:week13,
-      Week14:week14,
-      Week15:week15,
-      Week16:week16,
-      Week17:week17,
-      Week18:week18,
-      Week19:week19,
-      Week20:week20,
-      Week21:week21,
-      Week22:week22,
-      Week23:week23,
-      Week24:week24,
-      Week25:week25,
-      Week26:week26
-    });
+    // ref.set({
+    //   Week1:week1,
+    //   Week2:week2,
+    //   Week3:week3,
+    //   Week4:week4,
+    //   Week5:week5,
+    //   Week6:week6,
+    //   Week7:week7,
+    //   Week8:week8,
+    //   Week9:week9,
+    //   Week10:week10,
+    //   Week11:week11,
+    //   Week12:week12,
+    //   Week13:week13,
+    //   Week14:week14,
+    //   Week15:week15,
+    //   Week16:week16,
+    //   Week17:week17,
+    //   Week18:week18,
+    //   Week19:week19,
+    //   Week20:week20,
+    //   Week21:week21,
+    //   Week22:week22,
+    //   Week23:week23,
+    //   Week24:week24,
+    //   Week25:week25,
+    //   Week26:week26
+    // });
     var weekOne = [];
     for(var e = 0; e<week1.length; e++){
       var home = week1[e].Home;
@@ -144,15 +144,21 @@
         */
         var shuf = _.shuffle(some);
         var sl = shuf.slice(0,4);
-        console.log(date);
-        console.log(sl);
+        weekOne.push({
+          Date:date,
+          Games:_.unzip(sl),
+        });
       }else{
-        console.log(date);
-        console.log(some);
+        weekOne.push({
+          Date:date,
+          Games:_.unzip(some)
+        });
       }
 
-      // console.log(date,home.length, visit.length);
     }
+ref.set({
+  WeekOne:weekOne
+});
 
 
   });
