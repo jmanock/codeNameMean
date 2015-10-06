@@ -1,28 +1,13 @@
 <div class="container">
-  <!-- <ul>
-    <h2>First</h2>
-    <li ng-repeat='(k, v) in main.weeks'><h3>{{v.Date}}</h3>
-    <p ng-repeat='(k,v) in v.Games'>
-      {{v}}
-    </p>
-    <h4 ng-repeat='value in v.Visitors'>
-      {{value}}
-    </h4>
-    </li>
-  </ul> -->
-
-
-    <ul>
+  <ul>
     <li ng-repeat='w in main.weeks'> <h3>{{w.Date}}</h3>
+      <h4>Home</h4>
     <p ng-repeat='v in w.Games[0]'>
       {{v}}
     </p>
+    <h4>Visitor</h4>
     <p ng-repeat='v in w.Games[1]'>
       {{v}}
     </p></li>
   </ul>
-
-
-
-
 </div>
