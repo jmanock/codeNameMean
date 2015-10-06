@@ -74,91 +74,99 @@
     }).value();
 
     var week1 = workz.slice(0,4);
+    fbase(week1);
     var week2 = workz.slice(4,8);
+    fbase(week2);
     var week3 = workz.slice(8,12);
+    fbase(week3);
     var week4 = workz.slice(12,16);
+    fbase(week4);
     var week5 = workz.slice(16,20);
+    fbase(week5);
     var week6 = workz.slice(20,24);
+    fbase(week6);
     var week7 = workz.slice(24,28);
+    fbase(week7);
     var week8 = workz.slice(28,31);
+    fbase(week8);
     var week9 = workz.slice(31,35);
+    fbase(week9);
     var week10 = workz.slice(35,39);
+    fbase(week10);
     var week11 = workz.slice(39,43);
+    fbase(week11);
     var week12 = workz.slice(43,45);
+    fbase(week12);
     var week13 = workz.slice(45,49);
+    fbase(week13);
     var week14 = workz.slice(49,53);
+    fbase(week14);
     var week15 = workz.slice(53,57);
+    fbase(week15);
     var week16 = workz.slice(57,61);
+    fbase(week16);
     var week17 = workz.slice(61,65);
+    fbase(week17);
     var week18 = workz.slice(65,69);
+    fbase(week18);
     var week19 = workz.slice(69,73);
+    fbase(week19);
     var week20 = workz.slice(73,77);
+    fbase(week20);
     var week21 = workz.slice(77,81);
+    fbase(week21);
     var week22 = workz.slice(81,85);
+    fbase(week22);
     var week23 = workz.slice(85,89);
+    fbase(week23);
     var week24 = workz.slice(89,93);
+    fbase(week24);
     var week25 = workz.slice(93,97);
+    fbase(week25);
     var week26 = workz.slice(97,101);
+    fbase(week26);
 
-    // ref.set({
-    //   Week1:week1,
-    //   Week2:week2,
-    //   Week3:week3,
-    //   Week4:week4,
-    //   Week5:week5,
-    //   Week6:week6,
-    //   Week7:week7,
-    //   Week8:week8,
-    //   Week9:week9,
-    //   Week10:week10,
-    //   Week11:week11,
-    //   Week12:week12,
-    //   Week13:week13,
-    //   Week14:week14,
-    //   Week15:week15,
-    //   Week16:week16,
-    //   Week17:week17,
-    //   Week18:week18,
-    //   Week19:week19,
-    //   Week20:week20,
-    //   Week21:week21,
-    //   Week22:week22,
-    //   Week23:week23,
-    //   Week24:week24,
-    //   Week25:week25,
-    //   Week26:week26
-    // });
-    var weekOne = [];
-    for(var e = 0; e<week1.length; e++){
-      var home = week1[e].Home;
-      var date = week1[e].Date;
-      var visit = week1[e].Visitors;
-      var some = _.zip(visit,home);
+    function fbase(x){
+      for(var e = 0; e<x.length; e++){
+        var home = x[e].Home;
+        var date = x[e].Date;
+        var visit = x[e].Visitors;
+        var zip = _.zip(visit,home);
 
-
-
-      if(some.length > 4){
-        /*
-          ~ Need to shuffle and add to fb
-          ~ Remove or pluck
-        */
-        var shuf = _.shuffle(some);
-        var sl = shuf.slice(0,4);
-        weekOne.push({
-          Date:date,
-          Games:_.unzip(sl),
-        });
-      }else{
-        weekOne.push({
-          Date:date,
-          Games:_.unzip(some)
-        });
+        if(zip.length > 4){
+          var shuf = _.shuffle(zip);
+          var sli = shuf.slice(0,4);
+          /*
+          Have to figure out where to put this shit at
+          */
+        }
       }
-
     }
-ref.set({
-  WeekOne:weekOne
-});
+
+
+    // var weekOne = [];
+    // for(var e = 0; e<week1.length; e++){
+    //   var home = week1[e].Home;
+    //   var date = week1[e].Date;
+    //   var visit = week1[e].Visitors;
+    //   var some = _.zip(visit,home);
+    //
+    //   if(some.length > 4){
+    //     var shuf = _.shuffle(some);
+    //     var sl = shuf.slice(0,4);
+    //     weekOne.push({
+    //       Date:date,
+    //       Games:_.unzip(sl),
+    //     });
+    //   }else{
+    //     weekOne.push({
+    //       Date:date,
+    //       Games:_.unzip(some)
+    //     });
+    //   }
+    //
+    // }
+
 
 
   });
