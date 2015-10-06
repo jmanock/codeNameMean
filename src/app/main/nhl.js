@@ -128,14 +128,14 @@
       Week25:week25,
       Week26:week26
     });
-    var total = 0;
+    var weekOne = [];
     for(var e = 0; e<week1.length; e++){
       var home = week1[e].Home;
       var date = week1[e].Date;
       var visit = week1[e].Visitors;
       var some = _.zip(visit,home);
 
-      total += some.length;
+
 
       if(some.length > 4){
         /*
@@ -143,11 +143,9 @@
           ~ Remove or pluck
         */
         var shuf = _.shuffle(some);
+        var sl = shuf.slice(0,4);
         console.log(date);
-        console.log(shuf[0]);
-        console.log(shuf[1]);
-        console.log(shuf[2]);
-        console.log(shuf[3]);
+        console.log(sl);
       }else{
         console.log(date);
         console.log(some);
