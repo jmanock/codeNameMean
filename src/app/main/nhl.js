@@ -148,12 +148,18 @@
             Games:_.unzip(zip)
           });
         }
-
+        another(temp,y);
       }
       /*
         ~ Have to figure out how to put the week in first
         ~ Then add the week obj
       */
+      function another(x,y){
+        var url = 'https://fireseedangular.firebaseio.com/'+y;
+         var knewRef = new Firebase(url);
+         knewRef.set(x);
+
+      }
     }
 
 
