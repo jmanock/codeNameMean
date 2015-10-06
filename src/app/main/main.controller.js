@@ -8,10 +8,10 @@
   /** @ngInject */
   function MainController($firebaseArray) {
     var vm = this;
-    var url = 'https://fireseedangular.firebaseio.com/Week1';
+    var url = 'https://fireseedangular.firebaseio.com/test/WeekOne/';
     var ref = new Firebase(url);
     vm.weeks = $firebaseArray(ref);
-    
+
 
     }
 })();
