@@ -1,8 +1,9 @@
 <div class="container">
   <ul>
     <li ng-repeat='w in main.weeks'> <h3>{{w.Date}}</h3>
-    <p ng-repeat='v in w.Games' class='home'>
+    <p ng-repeat='v in w.Games[0]' class='home'>
       {{v}}
+
     </p>
 
     </li>
