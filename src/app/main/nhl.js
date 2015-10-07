@@ -135,29 +135,31 @@
         var visit = x[e].Visitors;
         var zip = _.zip(visit,home);
 
-        if(zip.length > 4){
-          var shuf = _.shuffle(zip);
-          var sli = shuf.slice(0,4);
-          temp.push({
-            Date:date,
-            Games:_.unzip(sli)
-          });
-
-        }else{
-          temp.push({
-            Date:date,
-            Games:_.unzip(zip)
-          });
-        }
+        // if(zip.length > 4){
+        //   var shuf = _.shuffle(zip);
+        //   var sli = shuf.slice(0,4);
+        //   temp.push({
+        //     Date:date,
+        //     Games:{Home:_.unzip(sli[0]),Visitor:_.unzip(sli[1])}
+        //   });
+        //
+        // }else{
+        //   temp.push({
+        //     Date:date,
+        //     Games:{Home:_.unzip(zip[0]),Visitor:_.unzip(zip[1])}
+        //   });
+        // }
 
       }
-      another(temp,y);
+      console.log(x);
+      //another(temp,y);
     }
 
 function another(x,y){
   var url = 'https://fireseedangular.firebaseio.com/Weeks/'+y;
   var knewRef = new Firebase(url);
-  knewRef.set(x);
+
+   knewRef.set(x);
 }
   });
 })();
