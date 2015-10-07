@@ -1,11 +1,17 @@
 <div class="container">
   <ul>
-    <li ng-repeat='w in main.weeks'> <h3>{{w.Date}}</h3>
-    <p ng-repeat='v in w.Games[0]' class='home'>
+    <li ng-repeat='w in main.weeks'>{{w.Date}} {{w.Games.Home}}
+      <p ng-repeat='v in w.Games.Home'>
+        
+      </p>
+
+    <!-- <p ng-repeat='v in w.Game' class='home'>
       {{v}}
 
-    </p>
-
+    </p> -->
+    <!-- <p ng-repeat='v in w.Games[0]'>
+      {{v}}
+    </p> -->
     </li>
   </ul>
 </div>

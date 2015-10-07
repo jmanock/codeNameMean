@@ -126,7 +126,7 @@
     var week26 = workz.slice(97,101);
     fbase(week26,'Week26');
 
-    function fbase(x,y){
+    function fbaset(x,y){
       var temp = [];
       for(var e = 0; e<x.length; e++){
 
@@ -135,25 +135,56 @@
         var visit = x[e].Visitors;
         var zip = _.zip(visit,home);
 
-        // if(zip.length > 4){
-        //   var shuf = _.shuffle(zip);
-        //   var sli = shuf.slice(0,4);
-        //   temp.push({
-        //     Date:date,
-        //     Games:{Home:_.unzip(sli[0]),Visitor:_.unzip(sli[1])}
-        //   });
-        //
-        // }else{
-        //   temp.push({
-        //     Date:date,
-        //     Games:{Home:_.unzip(zip[0]),Visitor:_.unzip(zip[1])}
-        //   });
-        // }
+        if(zip.length > 4){
+          var shuf = _.shuffle(zip);
+          var sli = shuf.slice(0,4);
+          temp.push({
+            Date:date,
+            Games:_.unzip(sli)
+          });
+
+        }else{
+          temp.push({
+            Date:date,
+            Games:_.unzip(zip)
+          });
+        }
+        // temp.push({
+        //   Date:date,
+        //   Game:{Home:zip[0][0],Visitor:zip[0][1]}
+        // });
 
       }
-      console.log(x);
+
       //another(temp,y);
     }
+function fbase(x,y){
+  var temp = [];
+  for(var g = 0; g<x.length; g++){
+    var date = x[g].Date;
+    var Home = x[g].Home;
+    var Visitors = x[g].Visitors;
+    var zip = _.zip(Visitors,Home);
+
+    if(zip.length > 4){
+      var shuf = _.shuffle(zip);
+      var sli = shuf.slice(0,4);
+      var final = _.unzip(sli);
+      temp.push({
+        Date:date,
+        Games:{Home:final[1],Visitor:final[0]}
+
+      });
+    }else{
+      temp.push({
+        Date:date,
+        Games:{Home:Home,Visitor:Visitors}
+
+      });
+    }
+  }
+another(temp,y);
+}
 
 function another(x,y){
   var url = 'https://fireseedangular.firebaseio.com/Weeks/'+y;
