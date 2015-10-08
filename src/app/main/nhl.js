@@ -172,25 +172,25 @@ function fbase(x,y){
       var final = _.unzip(sli);
       temp.push({
         Date:date,
-        Games:{Home:final[1],Visitor:final[0]}
-
+        Home:final[1],
+        Visitor:final[0]
       });
     }else{
       temp.push({
         Date:date,
-        Games:{Home:Home,Visitor:Visitors}
-
+        Home:Home,
+        Visitor:Visitors
       });
     }
   }
-another(temp,y);
+ another(temp,y);
 }
 
 function another(x,y){
   var url = 'https://fireseedangular.firebaseio.com/Weeks/'+y;
   var knewRef = new Firebase(url);
 
-   knewRef.set(x);
+  knewRef.set(x);
 }
   });
 })();
