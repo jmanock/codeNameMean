@@ -1,18 +1,47 @@
 <div class="container">
-  <!-- <ul>
-    <li ng-repeat='w in main.weeks'>{{w}}
-    <p ng-repeat='v in w.Game' class='home'>
-      {{v}}
+  <h1>Bookings per court</h1>
+  <table>
+    <thead>
+      <tr>
+        <td>
+          Name
+        </td>
+        <td>
+          Number
+        </td>
+        <td>
+          Number of Players
+        </td>
+        <td>
 
-    </p>
-    <p ng-repeat='v in w.Games[0]'>
-      {{v}}
-    </p>
-    </li>
-  </ul> -->
-<ul>
-  <li ng-repeat='w in main.weeks'>
-  {{w}}
-  </li>
-</ul>
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat='court in courts'>
+        <td>
+          {{court.name}}
+        </td>
+        <td>
+          {{court.number}}
+        </td>
+        <td>
+          {{court.numOfPlayers}}
+        </td>
+        <td>
+          <a ng-click='showDetails(court)'>Details</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <span ng-show='players && players.length > 0'>
+    <ul>
+      <li ng-repeat='player in players'>
+        <span class='name'>{{player}}</span>
+      </li>
+    </ul>
+  </span>
+  <span ng-show='players && players.length == 0'>
+    no players
+  </span>
 </div>
