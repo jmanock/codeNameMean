@@ -78,17 +78,19 @@
       first.push(date);
     }
     var second = [];
+    var count = 0;
     for(var x = 0; x<first.length && x<final.length; x++){
       if(first[x] === first[x-1]){
-        second.push({
-          date:final[x].date,
-          home:final[x].Home,
-          visitor:final[x].Visitor
-        });
+        var z = x-count;
+        second.push(z);
+        count++;
+      }else{
+        second.push(x+1);
+        count = 0;
       }
 
     }
-console.log(second);
+console.log(second.length);
 
     // var week1 = final.slice(0,4);
     // fbase(week1,'Week1');
