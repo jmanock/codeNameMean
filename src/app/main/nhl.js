@@ -77,12 +77,18 @@
       var date = final[i].date;
       first.push(date);
     }
+    var second = [];
     for(var x = 0; x<first.length && x<final.length; x++){
       if(first[x] === first[x-1]){
-        console.log(x);
+        second.push({
+          date:final[x].date,
+          home:final[x].Home,
+          visitor:final[x].Visitor
+        });
       }
-    }
 
+    }
+console.log(second);
 
     // var week1 = final.slice(0,4);
     // fbase(week1,'Week1');
