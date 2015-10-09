@@ -126,38 +126,6 @@
     var week26 = workz.slice(97,101);
     fbase(week26,'Week26');
 
-    function fbaset(x,y){
-      var temp = [];
-      for(var e = 0; e<x.length; e++){
-
-        var home = x[e].Home;
-        var date = x[e].Date;
-        var visit = x[e].Visitors;
-        var zip = _.zip(visit,home);
-
-        if(zip.length > 4){
-          var shuf = _.shuffle(zip);
-          var sli = shuf.slice(0,4);
-          temp.push({
-            Date:date,
-            Games:_.unzip(sli)
-          });
-
-        }else{
-          temp.push({
-            Date:date,
-            Games:_.unzip(zip)
-          });
-        }
-        // temp.push({
-        //   Date:date,
-        //   Game:{Home:zip[0][0],Visitor:zip[0][1]}
-        // });
-
-      }
-
-      //another(temp,y);
-    }
 function fbase(x,y){
   var temp = [];
   for(var g = 0; g<x.length; g++){
@@ -166,31 +134,16 @@ function fbase(x,y){
     var Visitors = x[g].Visitors;
     var zip = _.zip(Visitors,Home);
 
-    if(zip.length > 4){
-      var shuf = _.shuffle(zip);
-      var sli = shuf.slice(0,4);
-      var final = _.unzip(sli);
-      temp.push({
-        Date:date,
-        Home:final[1],
-        Visitor:final[0]
-      });
-    }else{
-      temp.push({
-        Date:date,
-        Home:Home,
-        Visitor:Visitors
-      });
-    }
+
   }
- another(temp,y);
+
 }
 
 function another(x,y){
   var url = 'https://fireseedangular.firebaseio.com/Weeks/'+y;
   var knewRef = new Firebase(url);
+  console.log(x,y);
 
-  knewRef.set(x);
 }
   });
 })();
