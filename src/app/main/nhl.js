@@ -93,7 +93,8 @@
 // Got the dates marked off
 // Next step is to seperate them into weeks
 // Not sure how this is going to work yet might just have to put them in by had
-// 1st game is going to be added twice 
+// 1st game is going to be added twice
+// maybe just split the game?
 
 
     // var week1 = final.slice(0,4);
