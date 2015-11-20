@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('codeNameMean', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'firebase']);
+    .module('newIdea', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router']);
 
 })();

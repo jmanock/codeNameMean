@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('codeNameMean')
+    .module('newIdea')
     .directive('acmeNavbar', acmeNavbar);
 
   /** @ngInject */

@@ -1,13 +1,7 @@
 {
-  "name": "codeNameMean",
+  "name": "newIdea",
   "version": "0.0.0",
-  "dependencies": {
-    "cheerio": "^0.19.0",
-    "firebase": "^2.3.1",
-    "moment": "^2.10.6",
-    "request": "^2.64.0",
-    "underscore": "^1.8.3"
-  },
+  "dependencies": {},
   "scripts": {
     "test": "gulp test"
   },

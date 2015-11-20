@@ -1,5 +1,5 @@
 {
-  "name": "codeNameMean",
+  "name": "newIdea",
   "version": "0.0.0",
   "dependencies": {
     "angular-animate": "~1.4.0",
@@ -13,9 +13,7 @@
     "toastr": "~2.1.1",
     "moment": "~2.10.3",
     "animate.css": "~3.3.0",
-    "angular": "~1.4.0",
-    "firebase": "~2.3.1",
-    "angularfire": "~1.1.3"
+    "angular": "~1.4.0"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.0"

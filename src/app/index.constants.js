@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('codeNameMean')
+    .module('newIdea')
     .constant('malarkey', malarkey)
     .constant('toastr', toastr)
     .constant('moment', moment);
