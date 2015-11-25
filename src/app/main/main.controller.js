@@ -6,34 +6,19 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr) {
-    var vm = this;
+  function MainController($scope) {
+    
+    $.getJSON('http://cors.io/?u=http://www.pgatour.com/data/r/current/leaderboard-v2.json',function(data){
+      var player = data.leaderboard.players;
+      player.forEach(function(x){
+        var firstName = x.player_bio.first_name;
+        var lastName = x.player_bio.last_name;
+        var fullName = firstName + ' '+ lastName;
+        // console.log(fullName);
 
-    vm.awesomeThings = [];
-    vm.classAnimation = '';
-    vm.creationDate = 1448009343422;
-    vm.showToastr = showToastr;
-
-    activate();
-
-    function activate() {
-      getWebDevTec();
-      $timeout(function() {
-        vm.classAnimation = 'rubberBand';
-      }, 4000);
-    }
-
-    function showToastr() {
-      toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
-      vm.classAnimation = '';
-    }
-
-    function getWebDevTec() {
-      vm.awesomeThings = webDevTec.getTec();
-
-      angular.forEach(vm.awesomeThings, function(awesomeThing) {
-        awesomeThing.rank = Math.random();
       });
-    }
+
+    });
+
   }
 })();
