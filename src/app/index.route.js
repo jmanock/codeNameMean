@@ -17,7 +17,7 @@
       .state('profile',{
         url:'/profile/:id',
         templateUrl:'app/profile/profile.html',
-        controller:'ProfileCOntroller',
+        controller:'ProfileController',
         controllerAs:'profile'
       })
       .state('standings', {
