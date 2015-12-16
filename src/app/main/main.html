@@ -1,15 +1,14 @@
 <div class="container">
-
-  <div>
-    <acme-navbar creationDate="main.creationDate" />
-  </div>
-  <div>
-    <h3>Players</h3>
-    <ol>
-      <li ng-repeat='x in players'>{{x}}</li>
-    </ol>
+  <div ng-hide='main.authData'>
+    <button ng-click='main.login()' class='btn-primary'>Log in with facebook</button>
+    <!-- <button ng-click='main.standings()' ui-sref='profile' class='btn-danger'>Go to Profile page</button> -->
   </div>
 
-
-
+  <div ng-show='main.authData'>
+    <img ng-src='{{main.authData.facebook.profileImageURL}}'>
+    <p>Welcome Back, <strong>{{main.authData.facebook.displayName}}</strong></p>
+    <button ng-click='main.profile()' ui-sref='profile({id:main.authData.uid})' class='btn-primary'>Make your pics now</button>
+    <button ng-click='main.standings' ui-sref='standings()'>Standings Page</button>
+    <button ng-click='main.logout()' class='btn-danger'>Log Out</button>
+  </div>
 </div>

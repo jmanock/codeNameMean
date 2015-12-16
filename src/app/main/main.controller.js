@@ -3,34 +3,40 @@
 
   angular
     .module('newIdea')
+    .factory('Auth', Auth)
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, $http) {
-    var something = [];
-    // $.getJSON('http://cors.io/?u=http://www.pgatour.com/data/r/current/leaderboard-v2.json',function(data){
-    //   var player = data.leaderboard.players;
-    //   player.forEach(function(x){
-    //     var firstName = x.player_bio.first_name;
-    //     var lastName = x.player_bio.last_name;
-    //     var fullName = firstName + ' '+ lastName;
-    //     something.push(fullName);
-    //   });
-    //   $scope.players = something;
-    //   console.log(something);
-    // });
-    $http.get('http://cors.io/?u=http://www.pgatour.com/data/r/current/leaderboard-v2.json')
-    .success(function(data){
-      var players = [];
-      var player = data.leaderboard.players;
-      angular.forEach(player, function(x){
-        var firstName = x.player_bio.first_name;
-        var lastName = x.player_bio.last_name;
-        var fullName = firstName + ' '+ lastName;
-        players.push(fullName);
-      });
-      $scope.players = players;
+  function Auth(FirebaseUrl, $firebaseAuth, Firebase){
+    var auth = new Firebase(FirebaseUrl);
+    return $firebaseAuth(auth);
+  }
+
+  function MainController(Auth, FirebaseUrl, toastr, Firebase) {
+    var vm = this;
+
+    var ref = new Firebase(FirebaseUrl);
+    vm.login = login;
+    vm.logout = logout;
+
+    Auth.$onAuth(function(authData){
+      vm.authData = authData;
     });
 
+    function login(){
+      Auth.$authWithOAuthPopup('facebook').then(function(authData){
+        var user = ref.child('users').child(authData.uid);
+        user.update({
+          uid:authData.uid,
+          facebook:authData.facebook,
+          fullName:authData.facebook.displayName
+        });
+      }).catch(function(error){
+        toastr.info(error);
+      });
+    }
+    function logout(){
+      Auth.$unauth();
+    }
   }
 })();
