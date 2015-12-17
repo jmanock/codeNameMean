@@ -25,7 +25,7 @@
 
     function login(){
       Auth.$authWithOAuthPopup('facebook').then(function(authData){
-        var user = ref.child('users').child(authData.uid);
+        var user = ref.child('Users').child(authData.uid);
         user.update({
           uid:authData.uid,
           facebook:authData.facebook,
