@@ -43,10 +43,8 @@
         golfer = 'J B Holmes';
       }
       var userTeam = ref.child('userTeam').child(name).child('Team').child(golfer);
+      var teamUser = ref.child('teamUser').child(golfer);
       var index = golfers.indexOf(golfer);
-
-      // error with names with . in them
-
 
       ref.child('userTeam').child(name).child('Count').transaction(function(count){
         if(count === null){
@@ -65,7 +63,10 @@
             Index:index,
             Name:golfer
           });
-
+          teamUser.update({
+            name:name,
+            golfer:golfer
+          });
         }
       });
     }
