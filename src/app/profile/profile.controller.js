@@ -6,7 +6,11 @@
   .module('newIdea')
   .controller('ProfileController', ProfileController);
 
-  function ProfileController(){
-
+  function ProfileController(Auth){
+    var vm = this;
+    vm.logout = logout;
+    function logout(){
+      Auth.$unauth();
+    }
   }
 })();
