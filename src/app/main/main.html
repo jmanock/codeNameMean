@@ -1,33 +1,24 @@
 <div class="container">
+  <h1>Fantasy Golf Challenge</h1>
 
-  <div>
-    <acme-navbar creationDate="main.creationDate" />
-  </div>
-
-  <div class="jumbotron text-center">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">
-      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-      Always a pleasure scaffolding your apps.
-    </p>
-    <p class="animated infinite" ng-class="main.classAnimation">
-      <button type="button" class="btn btn-lg btn-success" ng-click="main.showToastr()">Splendid Toastr</button>
-    </p>
-    <p>
-      With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']" />
-    </p>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
-      <div class="thumbnail">
-        <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
-        <div class="caption">
-          <h3>{{ awesomeThing.title }}</h3>
-          <p>{{ awesomeThing.description }}</p>
-          <p><a ng-href="{{awesomeThing.url}}">{{ awesomeThing.url }}</a></p>
-        </div>
-      </div>
+  <div class='rules'>
+    <h3>How to play</h3>
+    <ol>
+      <li>Each team selects four golfers for each tournament</li>
+      <li>Your team score is all golfers points added together</li>
+      <li>Golfers get points based on a modified stableford system</li>
+      <p>4 Points for EAGLE or Better
+      2 Points for BIRDIE <br>
+      0 Points for PAR <br>
+      -1 Points for BOGIE <br>
+      -2 Points for DOUBLE or Worse</P>
+    </ol>
+    <div ng-hide='main.authData'>
+      <button ng-click='main.login()' class='btn-primary'>Sign in with Facebook</button>
+    </div>
+    <div ng-show='main.authData'>
+      <button ng-click='main.profile' ui-sref='profile({id:main.authData.uid})' class='btn-primary'>Make your team</button>
+      <button ng-click='main.logout()' class='btn-danger'>Logme out</button>
     </div>
   </div>
 

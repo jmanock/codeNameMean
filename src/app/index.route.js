@@ -13,6 +13,17 @@
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
         controllerAs: 'main'
+      })
+      .state('profile',{
+        url:'/profile/:id',
+        templateUrl:'app/profile/profile.html',
+        controller:'ProfileController',
+        controllerAs:'profile'
+      })
+      .state('standings', {
+        url:'/standings',
+        templateUrl:'app/standings/standings.html',
+        controllerAs:'standings'
       });
 
     $urlRouterProvider.otherwise('/');

@@ -1,0 +1,20 @@
+li{
+  list-style:none;
+  font-size:1.3em;
+  line-height:2.5em;
+  margin-left:-10px;
+}
+ul{
+  background-color:#555555;
+  width:300px;
+}
+h1{
+
+}
+.btn{
+  margin-left:1em;
+  margin-top:0.3em;
+}
+li .btn{
+  margin-right:20px;
+}
