@@ -22,7 +22,8 @@
 
     $http.get('http://cors.io/?u=http://www.pgatour.com/data/r/current/leaderboard-v2.json')
     .success(function(data){
-      //var tournamentName = data.leaderboard.tournament_name;
+      var tournamentName = data.leaderboard.tournament_name;
+      vm.tName = tournamentName;
       var start = data.leaderboard.players;
       angular.forEach(start, function(a){
         var firstName = a.player_bio.first_name;
