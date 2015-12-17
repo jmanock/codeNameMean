@@ -6,6 +6,11 @@
   .controller('ProfileController', ProfileController);
 
   function ProfileController($http, Firebase, FirebaseUrl, $firebaseObject, $stateParams){
+    /* TODO
+      - Remove players from screen and fb
+      - Add players to screen
+      - Style
+    */
     var vm = this;
     vm.add = add;
     var golfers = [];
@@ -36,9 +41,7 @@
 
     function add(golfer){
       /* TODO
-        - add players to fb
         - add players to screen
-        - keep count in fb
       */
       if(golfer === 'J.B. Holmes'){
         golfer = 'J B Holmes';
