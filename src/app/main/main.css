@@ -1,15 +1,37 @@
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
 body{
   background:url(../Images/backgroundHole.jpg) no-repeat center center fixed;
   -webkit-background-size:cover;
   -moz-background-size:cover;
   -o-background-size:cover;
   background-size:cover;
+
 }
 .rules{
   background-color:#2B2F32;
   opacity:.9;
-  color:white;
+  color:lightgray;
+  width:500px;
+  height:250px;
+  border-radius:10px;
+}
+.rules h3, li, p, button{
+  margin-left:20px;
+}
+.rules > h3{
+  padding-top:10px;
+  text-decoration:underline;
+  font-family:'Indie Flower', cursive;
+}
+.rules p{
+  margin-top:5px;
 }
 h1{
-  color:gray;
+  color:white;
+  text-align:center;
+  font-family:'Indie Flower', cursive;
+  font-size:50px
+}
+button{
+  border-radius:5px;
 }
