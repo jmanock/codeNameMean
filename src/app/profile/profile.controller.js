@@ -39,9 +39,27 @@
         - add players to screen
         - keep count in fb
       */
-      var userTeam = ref.child('userTeam').child(name).child('Team');
-      userTeam.update({
-        Name:golfer
+      var userTeam = ref.child('userTeam').child(name).child('Team').child(golfer);
+      var index = golfers.indexOf(golfer);
+      var kname = ref.child('userTeam').child(name);
+      ref.child('userTeam').child(name).child('Count').transaction(function(count){
+        if(count === null){
+          count = 0;
+        }
+        if(count >= 5){
+          console.log('Thats all the players you can have on your team');
+        }else{
+          return(count ||0)+1;
+        }
+      }, function(err, commited){
+        if(err){
+          console.log(err);
+        }else if(commited){
+          userTeam.update({
+            Index:index
+          });
+          
+        }
       });
     }
   }
