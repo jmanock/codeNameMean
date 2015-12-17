@@ -1,14 +1,12 @@
 <div class="container">
+  <h1>Fantasy Golf Challenge</h1>
+
   <div ng-hide='main.authData'>
     <button ng-click='main.login()' class='btn-primary'>Log in with facebook</button>
-    <!-- <button ng-click='main.standings()' ui-sref='profile' class='btn-danger'>Go to Profile page</button> -->
   </div>
 
   <div ng-show='main.authData'>
-    <img ng-src='{{main.authData.facebook.profileImageURL}}'>
-    <p>Welcome Back, <strong>{{main.authData.facebook.displayName}}</strong></p>
-    <button ng-click='main.profile()' ui-sref='profile({id:main.authData.uid})' class='btn-primary'>Make your pics now</button>
-    <button ng-click='main.standings' ui-sref='standings()'>Standings Page</button>
-    <button ng-click='main.logout()' class='btn-danger'>Log Out</button>
+    <button ng-click='main.logout()' class='btn-danger'>Log the fuck up</button>
+    <button ng-click='main.standings' ui-sref='profile({id:main.authDate.uid})'>Make Your Pics</button>
   </div>
 </div>

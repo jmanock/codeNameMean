@@ -1,5 +1,14 @@
-li > .visitor{
-  border:1px solid orange;
-  color:red;
-  align:right;
+body{
+  background:url(../Images/backgroundHole.jpg) no-repeat center center fixed;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-size:cover;
+}
+.container{
+  background-color:#2B2F32;
+  opacity:.9;
+}
+h1{
+  color:white;
 }
