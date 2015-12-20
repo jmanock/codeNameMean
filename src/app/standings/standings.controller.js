@@ -12,6 +12,7 @@
     init();
     function init(){
       var users = [];
+      var final = [];
       var uTeams = $firebaseArray(fRef);
       var teams = $firebaseArray(fireRef);
       teams.$loaded().then(function(data){
@@ -20,9 +21,25 @@
         });
         for(var i = 0; i<users.length && i<uTeams.length; i++){
           if(users[i] === uTeams[i].$id){
-            console.log('Hello Friend');
+            // final.push({
+            //   User:users[i],
+            //   Team:uTeams[i].Team.Name
+            // });
+            var something = uTeams[i].Team;
+            final.push({
+              User:users[i]
+            });
+            angular.forEach(something, function(a){
+              final.push({
+                Team:a.Name
+              });
+              vm.final = final;
+            });
+
           }
+
         }
+        console.log(final);
       });
 
     }
