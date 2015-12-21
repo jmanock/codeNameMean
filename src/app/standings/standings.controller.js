@@ -12,7 +12,7 @@
     init();
     function init(){
       var users = [];
-      var final = [];
+      var final = {};
       var uTeams = $firebaseArray(fRef);
       var teams = $firebaseArray(fireRef);
       teams.$loaded().then(function(data){
@@ -26,20 +26,24 @@
             //   Team:uTeams[i].Team.Name
             // });
             var something = uTeams[i].Team;
-            final.push({
-              User:users[i]
-            });
+            // final.push({
+            //   User:users[i]
+            // });
+            final.Users = users[i];
+
             angular.forEach(something, function(a){
-              final.push({
-                Team:a.Name
-              });
+              // final.push({
+              //   Team:a.Name
+              // });
+              final.Team = a.Name;
+              console.log(final);
               vm.final = final;
             });
 
           }
 
         }
-        console.log(final);
+
       });
 
     }
