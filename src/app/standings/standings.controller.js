@@ -19,7 +19,23 @@
         angular.forEach(data, function(x){
           users.push(x.$id);
         });
-        for(var i = 0; i<users.length && i<uTeams.length; i++){
+        angular.forEach(users, function(a){
+          angular.forEach(uTeams, function(b){
+            
+            if(a === b.$id){
+
+              angular.forEach(b.Team, function(c){
+                // console.log(c.Name);
+
+                // final = {User:a,Team:[c.Name]};
+
+              });
+               //console.log(final);
+            }
+          });
+        });
+
+      /*  for(var i = 0; i<users.length && i<uTeams.length; i++){
           if(users[i] === uTeams[i].$id){
             // final.push({
             //   User:users[i],
@@ -31,18 +47,21 @@
             // });
             final.Users = users[i];
 
-            angular.forEach(something, function(a){
+            // angular.forEach(something, function(a){
+            for(var b = 0; b<something.length; b++){
+              console.log(b);
               // final.push({
               //   Team:a.Name
               // });
-              final.Team = a.Name;
-              console.log(final);
+
+
               vm.final = final;
-            });
+            }
+            // Would like user{team[p1,p2,p3,p4]}user{team[p1,p2,p3,p4]}
 
           }
 
-        }
+        }*/
 
       });
 
