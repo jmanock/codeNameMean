@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Standings</h1>
-  <table ng-repeat='module in ocw.modules'>
+  <!-- <table ng-repeat='module in ocw.modules'>
     <tr>
       <td>
         <h3>{{module.title}}</h3>
@@ -13,5 +13,17 @@
         {{week.title}}
       </td>
     </tr>
+  </table> -->
+
+  <table ng-repeat='x in test.Users'>
+    <tr>
+      <td>
+        <h3>{{x.User}}</h3>
+      </td>
+    </tr>
+    <tr ng-repeat='p in x.team'>
+      <td>{{p.Player}}</td>
+    </tr>
   </table>
+
 </div>

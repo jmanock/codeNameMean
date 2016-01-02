@@ -12,7 +12,7 @@
   // }
 
   function StandingsController($scope){
-    var json = {
+    var something = {
       "modules":
         [
           {
@@ -32,6 +32,25 @@
           }
         ]
     };
-    $scope.ocw = json;
+    $scope.ocw = something;
+
+    var works = {
+      "Users":
+      [
+        {
+          "User":"Jim Chaser",
+          "team":[{"Player":"Tiger Woods"},{"Player":"Jordan Speith"},{"Player":"Dustin Johnson"}, {"Player":"Sergio Garcia"}]
+        },
+        {
+          "User":"Brit Fernandez",
+          "team":[{"Player":"Jordan Speith"}, {"Player":"Jason Day"}, {"Player":"Rory Mac"},{"Player":"Sergio Garcia"}]
+        },
+        {
+          "User":"Jon Mac",
+          "team":[{"Player":"Zach Jonshon"}, {"Player":"Brooks Kopa"},{"Player":"Scott Stallings"}, {'Player':"Tony Funu"}]
+        }
+      ]
+    };
+    $scope.test = works;
   }
 })();
