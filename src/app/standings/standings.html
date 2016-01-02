@@ -1,4 +1,17 @@
 <div class="container">
   <h1>Standings</h1>
-  <h3 class='standings'ng-repeat='f in standings.final'>{{f.User}} {{f.Team}}</h3>
+  <table ng-repeat='module in ocw.modules'>
+    <tr>
+      <td>
+        <h3>{{module.title}}</h3>
+        <h4>Description</h4>
+        <p>{{module.description}}</p>
+      </td>
+    </tr>
+    <tr ng-repeat='week in module.weeks'>
+      <td>
+        {{week.title}}
+      </td>
+    </tr>
+  </table>
 </div>
