@@ -1,19 +1,5 @@
 <div class="container">
   <h1>Standings</h1>
-  <!-- <table ng-repeat='module in ocw.modules'>
-    <tr>
-      <td>
-        <h3>{{module.title}}</h3>
-        <h4>Description</h4>
-        <p>{{module.description}}</p>
-      </td>
-    </tr>
-    <tr ng-repeat='week in module.weeks'>
-      <td>
-        {{week.title}}
-      </td>
-    </tr>
-  </table> -->
 
   <table ng-repeat='x in test.Users'>
     <tr>
@@ -23,6 +9,7 @@
     </tr>
     <tr ng-repeat='p in x.team'>
       <td>{{p.Player}}</td>
+      <td>{{p.Points}}</td>
     </tr>
   </table>
 
