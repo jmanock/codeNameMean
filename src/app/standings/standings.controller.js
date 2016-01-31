@@ -19,7 +19,9 @@
     obj.$loaded().then(function(){
       angular.forEach(obj, function(value, key){
         sIds = key;
-        pNames.push(sIds);
+        pNames.push({
+          users:sIds,
+        });
       });
       var something = {
         "Users":[
@@ -29,7 +31,7 @@
           }
         ]
       };
-      $scope.deep = something;
+      $scope.deep = pNames;
     });
     // Figure out how the fuck to get the top to look like the bottom
     var works = {
