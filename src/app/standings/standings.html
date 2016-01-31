@@ -1,13 +1,18 @@
 <div class="container">
   <h1>Standings</h1>
+<h3 ng-repeat='m in muffin.users'>{{m}}
+<p ng-repeat='m in muffin.team'>{{m}}</p></h3>
 
-  <table ng-repeat='x in test.Users'>
+
+
+  <table ng-repeat='x in test.Users | orderBy:"-User"'>
     <tr>
       <td>
         <h3>{{x.User}}</h3>
+        <h3>{{x.User.Points}}</h3>
       </td>
     </tr>
-    <tr ng-repeat='p in x.team'>
+    <tr ng-repeat='p in x.team | orderBy:"-Points"'>
       <td>{{p.Player}}</td>
       <td>{{p.Points}}</td>
     </tr>

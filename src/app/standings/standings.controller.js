@@ -11,29 +11,27 @@
   //
   // }
 
-  function StandingsController($scope){
-    // var something = {
-    //   "modules":
-    //     [
-    //       {
-    //         "title":"name of module1",
-    //         "description":"description of module1",
-    //         "weeks":[{"id":1, "title":"Week 01"}]
-    //       },
-    //       {
-    //         "title":"name of module2",
-    //         "description":"description of module2",
-    //         "weeks":[{"id":2, "title":"Week 02"},{"id":3, "title":"Week 03"}]
-    //       },
-    //       {
-    //         "title":"name of module3",
-    //         "description":"description of module3",
-    //         "weeks":[{"id":4, "title":"Week 04"},{"id":5, "title":"Week fucking 5"}]
-    //       }
-    //     ]
-    // };
-    // $scope.ocw = something;
-
+  function StandingsController($scope, Firebase, $stateParams, $firebaseObject){
+    var sIds;
+    var pNames = [];
+    var fRef = new Firebase('https://reditclone.firebaseio.com/userTeam');
+    var obj = $firebaseObject(fRef);
+    obj.$loaded().then(function(){
+      angular.forEach(obj, function(value, key){
+        sIds = key;
+        pNames.push(sIds);
+      });
+      var something = {
+        "Users":[
+          {
+            "user":pNames,
+            "team":[{"player":"make something up"}]
+          }
+        ]
+      };
+      $scope.deep = something;
+    });
+    // Figure out how the fuck to get the top to look like the bottom
     var works = {
       "Users":
       [
@@ -51,6 +49,7 @@
         }
       ]
     };
+
     $scope.test = works;
   }
 })();

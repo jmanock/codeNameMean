@@ -21,7 +21,7 @@
     function init(){
       var user = $firebaseObject(ref.child('Users').child($stateParams.id));
       user.$loaded().then(function(){
-        name = user.uid;
+        name = user.fullName;
       });
     }
 
@@ -47,7 +47,6 @@
         golfer = 'J B Holmes';
       }
       var userTeam = ref.child('userTeam').child(name).child('Team').child(golfer);
-      var teamUser = ref.child('teamUser').child(golfer);
       var index = golfers.indexOf(golfer);
 
       ref.child('userTeam').child(name).child('Count').transaction(function(count){
@@ -66,10 +65,6 @@
           userTeam.update({
             Index:index,
             Name:golfer
-          });
-          teamUser.update({
-            name:name,
-            golfer:golfer
           });
         }
       });
