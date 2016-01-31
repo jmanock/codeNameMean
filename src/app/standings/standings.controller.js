@@ -12,26 +12,31 @@
   // }
 
   function StandingsController($scope, Firebase, $stateParams, $firebaseObject){
-    var sIds;
+    var sIds, pIds;
+    var userNames = [];
     var pNames = [];
     var fRef = new Firebase('https://reditclone.firebaseio.com/userTeam');
     var obj = $firebaseObject(fRef);
     obj.$loaded().then(function(){
       angular.forEach(obj, function(value, key){
         sIds = key;
-        pNames.push({
+        angular.forEach(value.Team, function(y){
+          pIds = y.Name;
+        });
+        userNames.push({
           users:sIds,
+          Team:pIds
         });
       });
-      var something = {
-        "Users":[
-          {
-            "user":pNames,
-            "team":[{"player":"make something up"}]
-          }
-        ]
-      };
-      $scope.deep = pNames;
+      // var something = {
+      //   "Users":[
+      //     {
+      //       "user":pNames,
+      //       "team":[{"player":"make something up"}]
+      //     }
+      //   ]
+      // };
+      $scope.deep = userNames;
     });
     // Figure out how the fuck to get the top to look like the bottom
     var works = {
